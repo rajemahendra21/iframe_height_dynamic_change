@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>onclick height change</title>
+<script src="../HTML5_canvas/js/jquery.min.1.4.2.js"></script>
+<script type="text/javascript">
+function showdiv() {
+    $('#info_perso').fadeIn();
+    $('#info_pro').delay(200).fadeIn();
+    $('#info_supp').delay(400).fadeIn();
+    $('#info_co-demandeur').delay(600).fadeIn();
+    $('#revenu_co-demandeur').delay(800).fadeIn();
+    $('#perso_co-demandeur').delay(1000).fadeIn();
+    $('#info_vehicule').delay(1200).fadeIn();
+    $('#validation').delay(1400).fadeIn();
+    var z = document.getElementById('infovehicule');
+        z.innerHTML = '7. V&eacute;hicule &agrave; financer';
+    var b = document.getElementById('champsObligatoires');
+        b.style.display="block";
+    var c = document.getElementById('simple');
+    var d = document.getElementById('codemandeur12');
+        c.checked = false;
+        d.checked = true;
+
+}
+
+function hidediv() {
+    $('#info_co-demandeur').fadeOut();
+    $('#revenu_co-demandeur').fadeOut();
+    $('#perso_co-demandeur').fadeOut();
+    $('#info_perso').fadeIn();
+    $('#info_pro').delay(200).fadeIn();
+    $('#info_supp').delay(400).fadeIn();
+    $('#info_vehicule').delay(600).fadeIn();
+    $('#validation').delay(800).fadeIn();
+    var z = document.getElementById('infovehicule');
+        z.innerHTML = '4. V&eacute;hicule &agrave; financer';
+    var b = document.getElementById('champsObligatoires');
+        b.style.display="block";
+    var c = document.getElementById('simple');
+        c.checked = true;
+    var d = document.getElementById('codemandeur12');
+        d.checked = false;
+}
+</script>
+</head>
+
+<body>
+<form action="" method="post" id="credit2" onsubmit="return validate();">
+            <table class="formDiv" cellspacing="0" style="position:relative;padding-bottom:0px;">
+            <h2 id="titreBlanc">FORMULAIRE</h2>
+                <tr height="50px" style="cursor:pointer;">
+                    <td width="30px"><input type="radio" value="simpledoc" name="demande" id="simple" onclick="hidediv();"></td>
+                    <td align="left" width="270px" onclick="hidediv();" style="border-right:1px solid #E9E9E9;"><label for="simple" class="txtdemande">Demande simple</label></td>
+                    <td width="30px" style="border-left:1px solid #BFBFBF;"><input type="radio" value="co-demandeurdoc" name="demande" id="codemandeur12" onclick="showdiv();"></td>
+                    <td align="left" onclick="showdiv();"><label for="codemandeur12" class="txtdemande">Avec co-demandeur</label></td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+            <span id="champsObligatoires">* Champs obligatoires</span>
+            <table class="formDiv" id="info_perso">
+                <tr>
+                    <td colspan="4" class="title">1. Information personnelle </td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="errorMSG"><?= $er; ?></td>
+                </tr>
+                <tr>
+                    <td width="130px"><label for="nom">Nom : </label></td>
+                    <td><input type="text" id="nom" name="nom" value=""></td>
+                    <td><label for="prenom">Pr&eacute;nom : </label></td>
+                    <td><input type="text" id="prenom" name="prenom" value=""></td>
+                </tr>
+                </table>
+                </form>
+                
+</body>
+</html>

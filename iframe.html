@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Iframe height change dynamically according to its content</title>
+<link href="reset.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.1.4.2.js"></script>
+<script type="text/javascript">
+$(window).load(function(){
+		var html = 'fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fds<br />fsdfdsfsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fds<br />fsdfdsfsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fds<br />fsdfdsfsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fsd<br />fds<br />fsdfdsfsd<br />fsd<br />fsd<br />fsd<br />fsd<br />sd<br />fsd<br />fds<br />';
+		
+		
+		var html2 = 'fsd<br />fsd<br />fsd<br />fsd<br />fs';
+		
+	$('#simple').click(function(){
+		$('#second_div').hide();
+		$('#first_div').empty();
+		$('#first_div').html(html);	
+		$('#first_div').show();		
+		parent.iframeLoaded();
+	});
+	$('#simple2').click(function(){
+		$('#first_div').hide();
+		$('#second_div').empty();
+		$('#second_div').html(html2);	
+		$('#second_div').show();	
+		parent.iframeLoaded();	
+	});
+});
+</script>
+</head>
+
+<body>
+<div style="width:1000px; background-color:#ccc;" id="inner_div">
+fsdfds
+fsd<br />
+<input type="radio" value="simpledoc" name="demande" id="simple" onclick="" checked="checked">First radio
+<input type="radio" value="simpledoc" name="demande" id="simple2" onclick="">Second radio
+<div id="first_div" class="div">
+</div>
+<div id="second_div" class="div" style="display:none;">
+</div>
+
+</div>
+</body>
+</html>
